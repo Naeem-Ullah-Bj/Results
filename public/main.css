@@ -1,1 +1,1006 @@
+<style>
 
+
+/* ==================== ENHANCED LOADING SPINNER ==================== */
+.lottery-custom-loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-hard);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lottery-custom-loader-spinner {
+    width: 70px;
+    height: 70px;
+    border: 4px solid rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    border-top-color: #3b82f6;
+    border-right-color: #8b5cf6;
+    border-bottom-color: #10b981;
+    animation: lottery-spin 1.2s ease-in-out infinite;
+    position: relative;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.lottery-custom-loader-spinner::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: #3b82f6;
+    animation: lottery-spin-reverse 1.5s linear infinite;
+}
+
+.lottery-custom-loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    backdrop-filter: blur(5px);
+    z-index: 9998;
+    display: none;
+}
+
+@keyframes lottery-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes lottery-spin-reverse {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-720deg); }
+}
+
+/* ==================== ENHANCED CONTAINER ==================== */
+.lottery-custom-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    min-height: 100vh;
+}
+
+/* ==================== ENHANCED HEADER ==================== */
+.lottery-custom-header {
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.lottery-custom-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #e11d48, #2563eb, #7c3aed, #059669);
+}
+
+.lottery-custom-header-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    max-width: 700px;
+    margin: 15px auto 0;
+    line-height: 1.6;
+    position: relative;
+    display: inline-block;
+    padding: 10px 25px;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 50px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.entry-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== ENHANCED NAVIGATION ==================== */
+.lottery-custom-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.lottery-custom-nav-btn {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #e11d48, #be123c);
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+}
+
+.lottery-custom-nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.lottery-custom-nav-btn:hover::before {
+    left: 100%;
+}
+
+.lottery-custom-nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(225, 29, 72, 0.4);
+}
+
+.lottery-custom-nav-btn i {
+    font-size: 1.1rem;
+}
+
+/* ==================== ENHANCED MAIN LAYOUT ==================== */
+.lottery-custom-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 900px) {
+    .lottery-custom-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== ENHANCED LOTTERY CARD ==================== */
+.lottery-custom-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.lottery-custom-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #e11d48, #2563eb, #7c3aed);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lottery-custom-card:hover::before {
+    opacity: 1;
+}
+
+.lottery-custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ==================== ENHANCED CARD HEADER ==================== */
+.lottery-custom-card-header {
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lottery-custom-card-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    z-index: 0;
+}
+
+.lottery-custom-card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.lottery-custom-card-name-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ==================== ENHANCED CARD ICON/IMAGE ==================== */
+.lottery-custom-card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 3px solid white;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.lottery-custom-card:hover .lottery-custom-card-icon {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.lottery-custom-card-icon img {
+    width: 100% ! important;
+    height: 100% ! important;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: var(--transition-smooth);
+}
+
+.lottery-custom-card:hover .lottery-custom-card-icon img {
+    transform: scale(1.1);
+}
+
+/* ==================== ENHANCED CARD NAME ==================== */
+.lottery-custom-card-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.lottery-custom-card-name::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+}
+
+/* ==================== ENHANCED LIVE BADGE ==================== */
+.lottery-custom-live-badge {
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    animation: lottery-pulse 2s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.lottery-custom-live-badge i {
+    font-size: 0.7rem;
+    animation: lottery-blink 1.5s infinite;
+}
+
+@keyframes lottery-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes lottery-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ==================== ENHANCED CARD META ==================== */
+.lottery-custom-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lottery-custom-draw-date,
+.lottery-custom-draw-number {
+    padding: 2px 5px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==================== ENHANCED CARD BODY ==================== */
+.lottery-custom-card-body {
+    padding: 30px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+}
+
+/* ==================== ENHANCED PRIZE SECTIONS ==================== */
+.lottery-custom-prize-section {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.lottery-custom-prize-section::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+}
+
+.lottery-custom-section-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.lottery-custom-section-label i {
+    color: #3b82f6;
+    font-size: 1.1rem;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* ==================== ENHANCED PRIZE GRID ==================== */
+.lottery-custom-numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.lottery-custom-prize-item {
+    text-align: center;
+    padding: 25px 15px;
+    background: white;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    transition: var(--transition-smooth);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.lottery-custom-prize-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lottery-custom-prize-item:hover::before {
+    opacity: 1;
+}
+
+.lottery-custom-prize-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+}
+
+.lottery-custom-prize-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.lottery-custom-prize-number {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1e293b;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #1e293b, #475569);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==================== ENHANCED NUMBERS GRID ==================== */
+.lottery-custom-numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.lottery-custom-number-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #1e293b;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.lottery-custom-number-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lottery-custom-number-item:hover::before {
+    opacity: 1;
+}
+
+.lottery-custom-number-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+}
+
+/* Special number styling */
+.lottery-custom-number-item-special {
+    border-color: #8b5cf6;
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    border-width: 1px;
+}
+
+.lottery-custom-number-item-special:hover {
+    border-color: #7c3aed;
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+}
+
+/* Consolation number styling */
+.lottery-custom-number-item-consolation {
+    border-color: #10b981;
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-width: 1px;
+}
+
+.lottery-custom-number-item-consolation:hover {
+    border-color: #059669;
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+}
+
+/* ==================== ENHANCED JACKPOT SECTION ==================== */
+.lottery-custom-jackpot-section {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 30px;
+    border: 2px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.lottery-custom-jackpot-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.03), transparent);
+}
+
+.lottery-custom-jackpot-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.lottery-custom-jackpot-title i {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
+
+.lottery-custom-jackpot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.lottery-custom-jackpot-item {
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #fde68a;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.lottery-custom-jackpot-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.1);
+    border-color: #fbbf24;
+}
+
+.lottery-custom-jackpot-label {
+    font-size: 0.73rem;
+    color: #64748b;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.lottery-custom-jackpot-value {
+    font-size: .75rem;
+    font-weight: 600;
+    color: #f59e0b;
+    
+    
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== ENHANCED REGION SECTIONS ==================== */
+.lottery-custom-region {
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.lottery-custom-region-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 35px;
+    color: #1e293b;
+    padding-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.lottery-custom-region-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+}
+
+/* ==================== ENHANCED FOOTER ==================== */
+.lottery-custom-footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+    color: #64748b;
+    font-size: 0.95rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.lottery-custom-last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+}
+
+.lottery-custom-last-updated:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.lottery-custom-last-updated i {
+    color: #3b82f6;
+    font-size: 1.1rem;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+#lotteryUpdateTime {
+    font-weight: 700;
+    color: #1e293b;
+    font-family: 'Courier New', monospace;
+}
+
+#lotteryDataSource {
+    font-style: italic;
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 2px solid #e2e8f0;
+    color: #94a3b8;
+}
+
+/* ==================== LOTTERY-SPECIFIC ENHANCEMENTS ==================== */
+/* Grand Dragon 4D */
+.lottery-custom-gd-lotto .lottery-custom-card-header {
+    background: linear-gradient(135deg, #e11d48, #be123c);
+}
+
+.lottery-custom-gd-lotto .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #fda4af, #fb7185);
+    box-shadow: 0 8px 25px rgba(225, 29, 72, 0.3);
+}
+
+/* Perdana Lottery */
+.lottery-custom-perdana .lottery-custom-card-header {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.lottery-custom-perdana .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #93c5fd, #3b82f6);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Lucky HariHari */
+.lottery-custom-harihari .lottery-custom-card-header {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+.lottery-custom-harihari .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #c4b5fd, #8b5cf6);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+/* Magnum 4D */
+.lottery-custom-magnum .lottery-custom-card-header {
+    background: linear-gradient(135deg, #ca8a04, #a16207);
+}
+
+.lottery-custom-magnum .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #fde047, #eab308);
+    box-shadow: 0 8px 25px rgba(202, 138, 4, 0.3);
+}
+
+/* Da Ma Cai */
+.lottery-custom-damacai .lottery-custom-card-header {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.lottery-custom-damacai .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #60a5fa, #1d4ed8);
+    box-shadow: 0 8px 25px rgba(29, 78, 216, 0.3);
+}
+
+/* Sports Toto */
+.lottery-custom-toto .lottery-custom-card-header {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.lottery-custom-toto .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #f87171, #dc2626);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+}
+
+/* Sandakan 4D */
+.lottery-custom-sandakan .lottery-custom-card-header {
+    background: linear-gradient(135deg, #ea580c, #c2410c);
+}
+
+.lottery-custom-sandakan .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #fdba74, #ea580c);
+    box-shadow: 0 8px 25px rgba(234, 88, 12, 0.3);
+}
+
+/* Special CashSweep */
+.lottery-custom-cashsweep .lottery-custom-card-header {
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+.lottery-custom-cashsweep .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #4ade80, #16a34a);
+    box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+}
+
+/* Sabah 88 4D */
+.lottery-custom-sabah88 .lottery-custom-card-header {
+    background: linear-gradient(135deg, #4f46e5, #4338ca);
+}
+
+.lottery-custom-sabah88 .lottery-custom-card-icon {
+  background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIsb7OhTUmsJ4gJxxgVSEElT6xDb8GT_lDcCEfX7JFHo-96s6XJd1mw4ChRnAXoAfKBNye_Fs9DQoDfuvN70ImDNw0laLNkCfws5f66ta1NyieSMn_gLjAc_fFJM6JHjg39ZsQwWqjRulz6ViZbzeCMWPDDuyFhhTMBZRIy5oNjQRSHng347Z7q_iNAFUw/s1600/1000097802.png') ! important;
+    background: linear-gradient(135deg, #818cf8, #4f46e5);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+}
+
+/* Singapore Lotteries */
+.lottery-custom-singapore .lottery-custom-card-header {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+}
+
+.lottery-custom-singapore .lottery-custom-card-icon {
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1200px) {
+    .lottery-custom-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .lottery-custom-card-header {
+        padding: 20px;
+        min-height: 100px;
+    }
+    
+    .lottery-custom-card-name {
+        font-size: 1.3rem;
+    }
+    
+    .lottery-custom-card-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .lottery-custom-prize-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .lottery-custom-numbers-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    .lottery-custom-jackpot-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lottery-custom-nav {
+        padding: 15px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .lottery-custom-nav-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .lottery-custom-prize-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lottery-custom-numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .lottery-custom-card-body {
+        padding: 20px;
+    }
+    
+    .entry-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* ==================== SCROLLBAR STYLING ==================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+/* ==================== FOCUS STATES ==================== */
+.lottery-custom-nav-btn:focus,
+.lottery-custom-number-item:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .lottery-custom-nav,
+    .lottery-custom-footer,
+    .lottery-custom-loader {
+        display: none !important;
+    }
+    
+    .lottery-custom-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .lottery-custom-card:hover {
+        transform: none;
+    }
+}
+  
+  
+  /* Additional styles for new fields */
+.lottery-custom-extra-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.lottery-custom-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.lottery-custom-extra-item {
+    text-align: center;
+    padding: 12px 8px;
+    background-color: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.lottery-custom-extra-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.lottery-custom-extra-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+    font-family: 'Inter', monospace;
+}
+  
+  
+</style>
+<style>
+  .lottery-custom-prize-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+
+/* Number Grid */
+.lottery-custom-numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+
+
+
+
+/* Jackpot Section */
+
+.lottery-custom-jackpot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+  .prizes {
+    font-size: .9rem;
+    font-weight: 700;
+    
+  }
+  .numbers {
+    font-size: .8rem;
+    font-weight: 600;
+  }
+
+</style>
