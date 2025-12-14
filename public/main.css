@@ -1,7 +1,5 @@
 <style>
-
-
-/* ==================== ENHANCED LOADING SPINNER ==================== */
+/* ==================== LOADER STYLES ==================== */
 .lottery-custom-loader {
     position: fixed;
     top: 50%;
@@ -470,7 +468,6 @@
     font-size: 0.85rem;
     color: #64748b;
     margin-bottom: 12px;
-    font-weight: 600;
 }
 
 .lottery-custom-prize-number {
@@ -627,8 +624,6 @@
     font-size: .75rem;
     font-weight: 600;
     color: #f59e0b;
-    
-    
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -802,7 +797,7 @@
 }
 
 .lottery-custom-sabah88 .lottery-custom-card-icon {
-  background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIsb7OhTUmsJ4gJxxgVSEElT6xDb8GT_lDcCEfX7JFHo-96s6XJd1mw4ChRnAXoAfKBNye_Fs9DQoDfuvN70ImDNw0laLNkCfws5f66ta1NyieSMn_gLjAc_fFJM6JHjg39ZsQwWqjRulz6ViZbzeCMWPDDuyFhhTMBZRIy5oNjQRSHng347Z7q_iNAFUw/s1600/1000097802.png') ! important;
+    background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIsb7OhTUmsJ4gJxxgVSEElT6xDb8GT_lDcCEfX7JFHo-96s6XJd1mw4ChRnAXoAfKBNye_Fs9DQoDfuvN70ImDNw0laLNkCfws5f66ta1NyieSMn_gLjAc_fFJM6JHjg39ZsQwWqjRulz6ViZbzeCMWPDDuyFhhTMBZRIy5oNjQRSHng347Z7q_iNAFUw/s1600/1000097802.png') ! important;
     background: linear-gradient(135deg, #818cf8, #4f46e5);
     box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
 }
